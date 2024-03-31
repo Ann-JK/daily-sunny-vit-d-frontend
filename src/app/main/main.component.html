@@ -1,6 +1,37 @@
-<div>
-  <h1>Main</h1>
-  <p>
-    Lorem ipsum
-  </p>
+<div id="main">
+  <h1>Kalkulaator</h1>
+  <form #uvForm="ngForm" (ngSubmit)="onSubmit(uvForm)" class="col-sm-10">
+    <div>
+      <p>Antud kalkulaatorisse on vaja sisestada oma nahatüüp, vastavalt mis on
+        lähim kirjeldus ning samuti on vaja kalkulaatoril valida oma asukoht,
+        et saada võimalikult täpne UV indeksi info.</p>
+    </div>
+    <div class="form-group">
+      <label for="skinType">Nahatüüp</label>
+      <div class="col-sm-2">
+        <input
+          type="range"
+          id="skinType"
+          min="1"
+          max="6"
+          #sliderInput
+          (input)="onSliderChange(sliderInput.value)">
+      </div>
+      <div>
+        <p>Tüüp: {{ selectedValue }}</p>
+        <p>Kirjeldus: {{ additionalInfo }}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="skinType">Asukoht</label>
+      <div class="col-sm-2">
+        <input
+          type="text"
+          id="location"
+          placeholder="Soon to be location field"
+          readonly> <!--TODO: Implement google place module-->
+      </div>
+    </div>
+    <button class="btn btn-dark" type="submit">Arvuta</button>
+  </form>
 </div>

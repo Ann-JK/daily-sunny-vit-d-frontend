@@ -1,13 +1,14 @@
 body {
   font-family: "Lucida Sans";
+  background-color: ivory !important;
 }
 
-h1 {
-  font-family: "Bookman Old Style";
-}
+/*h1 {*/
+/*  padding: 10%;*/
+/*}*/
 
 .navbar {
-  background-color: darkcyan;
+  background-color: #004c4c;
 }
 
 li {
@@ -17,9 +18,24 @@ li {
 
 .nav-link {
   color: whitesmoke !important;
+  border-radius: 6px;
 }
 
 .nav-link:hover {
-  background-color: darkslategrey !important;
-
+  background-color: darkcyan !important;
 }
+
+#main {
+  padding: 5%;
+  background-color: bisque;
+}
+
+.form-group {
+  padding: 2% 0;
+  border-bottom: 5px !important;
+}
+
+button {
+  margin-top: 5% !important;
+}
+
