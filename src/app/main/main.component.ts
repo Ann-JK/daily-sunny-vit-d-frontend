@@ -10,7 +10,11 @@ import {NgForm} from "@angular/forms";
 export class MainComponent {
   selectedValue: number | undefined;
   additionalInfo: string | undefined;
+  formattedAddress = " ";
 
+  public AddressChange(address: any) {
+    this.formattedAddress = address.formatted_address
+  }
   onSliderChange(value: string) {
     this.selectedValue = +value;
     this.setAdditionalInfo();

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './header/header.component';
+import {GooglePlaceModule} from "ngx-google-places-autocomplete";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    GooglePlaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

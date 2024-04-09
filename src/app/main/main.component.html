@@ -25,11 +25,8 @@
     <div class="form-group">
       <label for="skinType">Asukoht</label>
       <div class="col-sm-2">
-        <input
-          type="text"
-          id="location"
-          placeholder="Soon to be location field"
-          readonly> <!--TODO: Implement google place module-->
+        <input ngx-google-places-autocomplete (onAddressChange)="AddressChange($event)"/>
+        {{ formattedAddress }}
       </div>
     </div>
     <button class="btn btn-dark" type="submit">Arvuta</button>
