@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgForm} from "@angular/forms";
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -11,10 +12,16 @@ export class MainComponent {
   selectedValue: number | undefined;
   additionalInfo: string | undefined;
   formattedAddress = " ";
+  longitude: any;
+  latitude: any;
+  isFormInvalid: boolean | undefined;
 
-  public AddressChange(address: any) {
-    this.formattedAddress = address.formatted_address
+  public AddressChange(event: any) {
+    this.formattedAddress = event.formatted_address;
+    this.longitude = event.geometry.location.lng();
+    this.latitude = event.geometry.location.lat()
   }
+
   onSliderChange(value: string) {
     this.selectedValue = +value;
     this.setAdditionalInfo();
@@ -46,6 +53,15 @@ export class MainComponent {
   }
 
   onSubmit(uvForm: NgForm) {
-
+    if (this.selectedValue == null || this.longitude == null || this.latitude == null) {
+      //TODO: switch case vastavatele erroritele
+      console.error("Form is not valid")
+      this.isFormInvalid = true;
+    } else {
+      console.log("Longitude: ", this.longitude, "Latitude: ", this.latitude)
+      console.log("Skin type: ", this.selectedValue)
+      console.log("Form is valid")
+      this.isFormInvalid = false;
+    }
   }
 }
