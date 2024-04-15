@@ -1,20 +1,28 @@
 import { Component } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environment";
 
 
 @Component({
   selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  templateUrl: './uv-form.component.html',
+  styleUrls: ['./uv-form.component.css']
 })
 
-export class MainComponent {
+export class UvFormComponent {
   selectedValue: number | undefined;
   additionalInfo: string | undefined;
   formattedAddress = " ";
   longitude: any;
   latitude: any;
   isFormInvalid: boolean | undefined;
+  uvForm = {
+    skinType: 0,
+    longitude: 0,
+    latitude: 0
+  }
+
+  constructor(private http: HttpClient) {}
 
   public AddressChange(event: any) {
     this.formattedAddress = event.formatted_address;
@@ -52,16 +60,24 @@ export class MainComponent {
     }
   }
 
-  onSubmit(uvForm: NgForm) {
+  onSubmit() {
     if (this.selectedValue == null || this.longitude == null || this.latitude == null) {
-      //TODO: switch case vastavatele erroritele
       console.error("Form is not valid")
       this.isFormInvalid = true;
     } else {
-      console.log("Longitude: ", this.longitude, "Latitude: ", this.latitude)
-      console.log("Skin type: ", this.selectedValue)
-      console.log("Form is valid")
+      console.log("Skin type: ", this.selectedValue, "Longitude: ", this.longitude, "Latitude: ", this.latitude)
       this.isFormInvalid = false;
+
+      this.uvForm.skinType = this.selectedValue;
+      this.uvForm.longitude = this.longitude;
+      this.uvForm.latitude = this.latitude;
+
+      console.log(this.uvForm)
+      //TODO: Refactor server url later
+      this.http.post<any>(environment.SERVER_URL + '/d-vit', this.uvForm)
+        .subscribe((response) => {
+          console.log("response: ", response)
+        })
     }
   }
 }

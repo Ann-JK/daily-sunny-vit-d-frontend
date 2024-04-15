@@ -64,7 +64,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "daily-sunny-vit-d-frontend:build:production"
+              "browserTarget": "daily-sunny-vit-d-frontend:build:production",
+              "proxyConfig": "src/proxy.conf.js"
             },
             "development": {
               "browserTarget": "daily-sunny-vit-d-frontend:build:development"
