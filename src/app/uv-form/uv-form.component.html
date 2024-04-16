@@ -42,5 +42,10 @@
     <button class="btn btn-dark" type="submit">Arvuta</button>
     <br>
     <div *ngIf="isFormInvalid" class="alert alert-danger">Palun täida kõik väljad ja proovi uuesti!</div>
+    <div *ngIf="showResult" class="uv-result">
+      <div>UV-indeks: {{ this.uvResponse.UV }}</div>
+      <div>Väljas viibimise ajasoovitus: {{ this.uvResponse.recommendedExposure }}</div>
+      <div>{{ this.uvResponse.description }}</div>
+    </div>
   </form>
 </div>
