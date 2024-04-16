@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environment";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -21,6 +22,7 @@ export class UvFormComponent {
     longitude: 0,
     latitude: 0
   }
+  data: any;
 
   constructor(private http: HttpClient) {}
 
@@ -65,7 +67,6 @@ export class UvFormComponent {
       console.error("Form is not valid")
       this.isFormInvalid = true;
     } else {
-      console.log("Skin type: ", this.selectedValue, "Longitude: ", this.longitude, "Latitude: ", this.latitude)
       this.isFormInvalid = false;
 
       this.uvForm.skinType = this.selectedValue;
@@ -73,11 +74,14 @@ export class UvFormComponent {
       this.uvForm.latitude = this.latitude;
 
       console.log(this.uvForm)
-      //TODO: Refactor server url later
-      this.http.post<any>(environment.SERVER_URL + '/d-vit', this.uvForm)
-        .subscribe((response) => {
-          console.log("response: ", response)
-        })
+      this.postUvForm(this.uvForm).subscribe((responseData) => {
+        console.log(responseData)
+        this.data = responseData
+      });
     }
+  }
+
+  postUvForm(form: any): Observable<any> {
+    return this.http.post<any>(environment.SERVER_URL + '/d-vit/uv', form)
   }
 }
