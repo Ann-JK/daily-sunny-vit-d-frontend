@@ -3,22 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
+import { UvFormComponent } from './uv-form/uv-form.component';
 import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './header/header.component';
 import {GooglePlaceModule} from "ngx-google-places-autocomplete";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
+    UvFormComponent,
     HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
