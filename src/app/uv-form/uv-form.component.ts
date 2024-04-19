@@ -13,6 +13,7 @@ import {Observable} from "rxjs";
 export class UvFormComponent {
   selectedValue: number | undefined;
   additionalInfo: string | undefined;
+  additionalExample: string | undefined;
   formattedAddress = " ";
   longitude: any;
   latitude: any;
@@ -39,6 +40,7 @@ export class UvFormComponent {
     this.formattedAddress = event.formatted_address;
     this.longitude = event.geometry.location.lng();
     this.latitude = event.geometry.location.lat()
+    console.log(event)
   }
 
   onSliderChange(value: string) {
@@ -51,28 +53,36 @@ export class UvFormComponent {
       case 1:
         this.additionalInfo = "Kõige heledam nahatüüp. Ülimalt tundlik nahk, päikese käes läheb punaseks, " +
           "päikesepõletus tuleb kergelt ning ei päevitu.";
+        this.additionalExample = "Näide: Tedretähnid, loomulikult punased juuksed."
         break;
       case 2:
-        this.additionalInfo = "Hele nahatüüp. Väga tundlik nahk, päikese käes punasus tuleb kergelt, " +
-          "päikesepõletuse oht, päevitumine minimaalselt.";
+        this.additionalInfo = "Hele nahatüüp. Väga tundlik nahk, päikese käes punasus tuleb kergelt, päikesepõletuse " +
+          "oht, päevitumine minimaalselt."
+        this.additionalExample = "Blondid juuksed, heledat värvi silmad, kaukaaslased või põhja-aasialased."
         break;
       case 3:
-        this.additionalInfo = "Jumekas nahatüüp. Võrdlemisi tundlik nahk. Vahel võib punaseks minna liigse päikesega, " +
-          "päevitumine on aeglane.";
+        this.additionalInfo = "Jumekas nahatüüp. Võrdlemisi tundlik nahk. Vahel võib punaseks minna liigse " +
+          "päikesega, päevitumine on aeglane.";
+        this.additionalExample = "Pruunid juuksed. Tumedamad kaukaaslased, mõned aasialased."
         break;
       case 4:
         this.additionalInfo = "Helepruun nahatüüp. Vähetundlik nahk. Minimaalne punetus päikesega, " +
           "päevitumine tavaline.";
+        this.additionalExample = "Vahemereäärsed ja Lähis-Ida kaukaaslased, lõuna-aasialased."
         break;
       case 5:
         this.additionalInfo = "Pruun nahatüüp. Vastupidav nahk. Üliharva tekib päikesepõletus, " +
           "päevitumine väga efektiivne.";
+        this.additionalExample = "Mõned hispaanlased või ladina-ameeriklased, mõned aafriklased."
         break;
       case 6:
-        this.additionalInfo = "Tumepruun nahatüüp. Väga vastupidav nahk. Ei teki päikesepõletust, tugev pigmentatsioon.";
+        this.additionalInfo = "Tumepruun nahatüüp. Väga vastupidav nahk. Ei teki päikesepõletust, tugev " +
+          "pigmentatsioon.";
+        this.additionalExample = "Tumedamad aafriklased, Austraalia põliselanikud."
         break;
       default:
-        this.additionalInfo = "No information available";
+        this.additionalInfo = "Infot pole";
+        this.additionalExample = " "
     }
   }
 

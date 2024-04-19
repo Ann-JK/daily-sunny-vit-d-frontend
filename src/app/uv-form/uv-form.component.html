@@ -7,8 +7,8 @@
         et saada võimalikult täpne UV indeksi info.</p>
     </div>
     <div class="form-group">
-      <label for="skinType">Nahatüüp</label>
-      <div class="col-sm-4">
+      <label for="skinType"><h4>Nahatüüp</h4></label>
+      <div class="col-sm-2">
         <input
           type="range"
           class="form-control"
@@ -22,12 +22,14 @@
           required>
       </div>
       <div>
-        <p>Tüüp: {{ selectedValue }}</p>
-        <p>Kirjeldus: {{ additionalInfo }}</p>
+        <p><b>Tüüp:</b> {{ selectedValue }}</p>
+        <p>
+          <b>Kirjeldus:</b><br> {{ additionalInfo }} <br><i>Näiteks:</i> {{ additionalExample }}
+        </p>
       </div>
     </div>
     <div class="form-group">
-      <label for="location">Asukoht</label>
+      <label for="location"><h4>Asukoht</h4></label>
       <div class="col-sm-2">
         <input
           name="location"
@@ -36,7 +38,7 @@
           (onAddressChange)="AddressChange($event)"
           ngModel
           required/>
-        {{ formattedAddress }}
+        <i>{{ formattedAddress }}</i>
       </div>
     </div>
     <button class="btn btn-dark" type="submit">Arvuta</button>
