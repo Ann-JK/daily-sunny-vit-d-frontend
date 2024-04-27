@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environment";
 import {Observable} from "rxjs";
@@ -31,10 +31,6 @@ export class UvFormComponent {
   };
 
   constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.showResult = false;
-  }
 
   public AddressChange(event: any) {
     this.formattedAddress = event.formatted_address;

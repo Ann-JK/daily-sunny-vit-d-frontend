@@ -3,10 +3,6 @@ body {
   background-color: ivory !important;
 }
 
-/*h1 {*/
-/*  padding: 10%;*/
-/*}*/
-
 .navbar {
   background-color: #004c4c;
 }
@@ -26,20 +22,29 @@ li {
 }
 
 #main {
-  padding: 5%;
+  max-width: 1500px;
+  padding: 7%;
   background-color: bisque;
+
 }
 
 .form-group {
-  padding: 2% 0;
   border-bottom: 5px !important;
 }
 
 button {
-  margin-top: 5% !important;
+  margin-top: 15px !important;
 }
 
 .uv-result {
   margin: 5% 0 !important;
+}
+
+.slider {
+  width: 200px !important;
+}
+
+.alert {
+  margin: 4% 0 !important;
 }
 

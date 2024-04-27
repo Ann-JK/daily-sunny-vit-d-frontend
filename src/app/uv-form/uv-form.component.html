@@ -8,7 +8,7 @@
     </div>
     <div class="form-group">
       <label for="skinType"><h4>Nahatüüp</h4></label>
-      <div class="col-sm-2">
+      <div class="slider col-sm-2">
         <input
           type="range"
           class="form-control"
@@ -45,8 +45,8 @@
     <br>
     <div *ngIf="isFormInvalid" class="alert alert-danger">Palun täida kõik väljad ja proovi uuesti!</div>
     <div *ngIf="showResult" class="uv-result">
-      <div>UV-indeks: {{ this.uvResponse.UV }}</div>
-      <div>Väljas viibimise ajasoovitus: {{ this.uvResponse.recommendedExposure }}</div>
+      <div><b>UV-indeks: {{ this.uvResponse.UV }}</b></div>
+      <div><b>Väljas viibimise ajasoovitus: {{ this.uvResponse.recommendedExposure }} minutit</b></div>
       <div>{{ this.uvResponse.description }}</div>
     </div>
   </form>
