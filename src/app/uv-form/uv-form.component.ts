@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-uv-form',
   templateUrl: './uv-form.component.html',
   styleUrls: ['./uv-form.component.css']
 })

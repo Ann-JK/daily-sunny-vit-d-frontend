@@ -8,12 +8,14 @@ import {FormsModule} from "@angular/forms";
 import { HeaderComponent } from './header/header.component';
 import {GooglePlaceModule} from "ngx-google-places-autocomplete";
 import {HttpClientModule} from "@angular/common/http";
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UvFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
